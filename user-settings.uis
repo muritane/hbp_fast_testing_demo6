@@ -45,7 +45,7 @@
       "content": [
         {
           "type": "stack",
-          "width": 99.99999999999999,
+          "width": 100,
           "isClosable": true,
           "reorderEnabled": true,
           "title": "",
