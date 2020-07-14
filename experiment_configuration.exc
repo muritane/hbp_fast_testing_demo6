@@ -18,5 +18,6 @@
 <!--   <rosLaunch src="kuka.launch" /> -->
 <!--   <rosLaunch src="lwa4p.launch" /> -->
 <!--   <rosLaunch src="panda.launch" /> -->
-  <rosLaunch src="ur5e.launch" />
+<!--   <rosLaunch src="ur5e.launch" /> -->
+  <rosLaunch src="multiple_robots.launch" />
 </ExD>

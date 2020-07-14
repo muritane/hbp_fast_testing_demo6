@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find demonstrator6_description)/urdf/multiple_robots/multiple_robots.urdf.xacro'" />
+
+  <group ns="/iiwa">
+    <param name="robot_description" command="$(find xacro)/xacro '$(find demonstrator6_description)/urdf/multiple_robots/multiple_robots.urdf.xacro'" />
+    <rosparam file="$(find demonstrator6_description)/config/ros_controllers_eff_traj.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" args="joint_state_controller effort_trajectory_controller gripper_left_effort_controller gripper_right_effort_controller">
+    </node>
+    <node name="joint_state_relay" pkg="topic_tools" type="relay" args="/iiwa/joint_states /joint_states"/>
+  </group>
+
+  <group ns="/panda">
+    <param name="robot_description" command="$(find xacro)/xacro '$(find demonstrator6_description)/urdf/multiple_robots/multiple_robots.urdf.xacro'" />
+    <rosparam file="$(find demonstrator6_description)/config/ros_controllers_panda.yaml" command="load"/>
+    <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="joint_state_controller position_joint_trajectory_controller franka_gripper">
+    </node>
+    <node name="joint_state_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states"/>
+  </group>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+  </node>
+</launch>
