@@ -44,8 +44,12 @@
         <uri>model://schunk_lwa4p_with_svh_hand</uri>
         <pose>1.4 -0.6 0.6 0 -0 0</pose>
     </include>-->
-    <include>
+    <!--<include>
         <uri>model://panda</uri>
+        <pose>1.4 -0.6 0.6 0 -0 0</pose>
+    </include>-->
+    <include>
+        <uri>model://ur5e</uri>
         <pose>1.4 -0.6 0.6 0 -0 0</pose>
     </include>
     <model name='nrppanel'>
