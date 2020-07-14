@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur_e_description)/urdf/ur5e_joint_limited_robot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find demonstrator6_description)/urdf/ur5e/ur5e_with_hand.urdf.xacro'" />
   <group ns="ur5e">
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur_e_description)/urdf/ur5e_joint_limited_robot.urdf.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find demonstrator6_description)/urdf/ur5e/ur5e_with_hand.urdf.xacro'" />
     <rosparam file="$(find ur_e_gazebo)/controller/arm_controller_ur5e.yaml" command="load"/>
     <rosparam file="$(find ur_e_gazebo)/controller/joint_state_controller.yaml" command="load"/>
     <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
@@ -10,6 +10,18 @@
     </node>
     <node name="joint_state_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states"/>
   </group>
+
+ <!-- <group ns="svh">
+    <group ns="svh_ros_control_node">
+      <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find demonstrator6_description)/urdf/ur5e/ur5e_with_hand.urdf.xacro'" />
+      <rosparam file="$(find sacc_rec_grasp)/config/svh_controllers.yaml" command="load"/>
+      <node name="svh_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+            output="screen" args="svh_joint_state_controller
+                                  svh_eff_based_traj_controller_hand
+                                  "/>
+      <node name="joint_state_relay" pkg="topic_tools" type="relay" args="joint_states /joint_states"/>
+    </group>
+  </group>-->
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
