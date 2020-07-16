@@ -3,13 +3,17 @@
   <name>Fast testing</name>
   <thumbnail>TemplateNew.jpg</thumbnail>
   <description>This new experiment is based on the models that you have selected. You are free to edit the description.</description>
-  <timeout>8400</timeout>
+  <timeout>86400</timeout>
   <configuration type="brainvisualizer" src="brainvisualizer.json"/>
   <configuration type="3d-settings" src="TemplateNew.ini"/>
   <configuration type="user-interaction-settings" src="user-settings.uis"/>
   <maturity>production</maturity>
   <environmentModel src="empty_world.sdf"/>
   <bibiConf src="bibi_configuration.bibi"/>
+  <!--<experimentControl>
+    <stateMachine id="BallThrowingMachine_0" src="BallThrowingMachine_0.exd" xsi:type="SMACHStateMachine" />
+    <stateMachine id="BallThrowingMachine_1" src="BallThrowingMachine_1.exd" xsi:type="SMACHStateMachine" />
+  </experimentControl>-->
   <cameraPose>
     <cameraPosition x="4.5" y="0" z="1.8"/>
     <cameraLookAt x="0" y="0" z="0.6"/>
