@@ -120,6 +120,8 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
 
+
+
     <!--<model name="hbp/conveyor_0">
       <pose frame="">-1.14811 -1.0005 0.024182 0 -0 0</pose>
       <self_collide>0</self_collide>
@@ -247,7 +249,7 @@
       </joint>
       <plugin name="conveyor_belt_plugin_0" filename="libROSConveyorBeltPlugin.so">
         <robot_namespace>/ariac_0</robot_namespace>
-        <population_rate_modifier_topic>/ariac_0/population/rate_modifier_0</population_rate_modifier_topic>
+        <population_rate_modifier_topic>/ariac_0/population/rate_modifier</population_rate_modifier_topic>
         <link>conveyor_belt_0::belt</link>
         <joint>conveyor_belt_0::belt_joint</joint>
         <power>100</power>
@@ -381,12 +383,286 @@
       </joint>
       <plugin name="conveyor_belt_plugin_1" filename="libROSConveyorBeltPlugin.so">
         <robot_namespace>/ariac_1</robot_namespace>
-        <population_rate_modifier_topic>/ariac_1/population/rate_modifier_1</population_rate_modifier_topic>
+        <population_rate_modifier_topic>/ariac_1/population/rate_modifier</population_rate_modifier_topic>
         <link>conveyor_belt_1::belt</link>
         <joint>conveyor_belt_1::belt_joint</joint>
         <power>100</power>
       </plugin>
     </model>
+
+    <model name="conveyor_2">
+      <pose frame="">-1.14811 -4.0005 0.024182 0 -0 0</pose>
+      <self_collide>0</self_collide>
+      <static>0</static>
+      <link name="conveyor_belt_2::link">
+        <inertial>
+          <pose frame="">1.58245 -0.316965 0.773765 0 -0 0</pose>
+          <mass>1000</mass>
+          <inertia>
+            <ixx>22.111</ixx>
+            <ixy>-2.43</ixy>
+            <ixz>0.23</ixz>
+            <iyy>415.156</iyy>
+            <iyz>6.932</iyz>
+            <izz>426.628</izz>
+          </inertia>
+        </inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <visual name="belt_mesh_2">
+          <geometry>
+            <mesh>
+              <uri>model://conveyor/meshes/model.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="belt_mesh_2">
+          <geometry>
+            <mesh>
+              <uri>model://conveyor/meshes/model.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <link name="conveyor_belt_2::belt">
+        <pose frame="">1.502 -0.322 0.795 0 -0 0</pose>
+        <collision name="belt_collision_2">
+          <geometry>
+            <box>
+              <size>3.2 0.65461 0.18862</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <coefficient>1000</coefficient>
+                <patch_radius>0.1</patch_radius>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <joint name="world_conveyor_2" type="revolute">
+        <parent>world</parent>
+        <child>conveyor_belt_2::link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <use_parent_model_frame>0</use_parent_model_frame>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="conveyor_belt_2::belt_joint" type="prismatic">
+        <parent>conveyor_belt_2::link</parent>
+        <child>conveyor_belt_2::belt</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1</upper>
+          </limit>
+          <use_parent_model_frame>0</use_parent_model_frame>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <plugin name="conveyor_belt_plugin_2" filename="libROSConveyorBeltPlugin.so">
+        <robot_namespace>/ariac_2</robot_namespace>
+        <population_rate_modifier_topic>/ariac_2/population/rate_modifier</population_rate_modifier_topic>
+        <link>conveyor_belt_2::belt</link>
+        <joint>conveyor_belt_2::belt_joint</joint>
+        <power>100</power>
+      </plugin>
+    </model>
+
+
+    <model name="conveyor_3">
+      <pose frame="">-1.14811 2.0005 0.024182 0 -0 0</pose>
+      <self_collide>0</self_collide>
+      <static>0</static>
+      <link name="conveyor_belt_3::link">
+        <inertial>
+          <pose frame="">1.58245 -0.316965 0.773765 0 -0 0</pose>
+          <mass>1000</mass>
+          <inertia>
+            <ixx>22.111</ixx>
+            <ixy>-2.43</ixy>
+            <ixz>0.23</ixz>
+            <iyy>415.156</iyy>
+            <iyz>6.932</iyz>
+            <izz>426.628</izz>
+          </inertia>
+        </inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <visual name="belt_mesh_3">
+          <geometry>
+            <mesh>
+              <uri>model://conveyor/meshes/model.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="belt_mesh_3">
+          <geometry>
+            <mesh>
+              <uri>model://conveyor/meshes/model.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <link name="conveyor_belt_3::belt">
+        <pose frame="">1.502 -0.322 0.795 0 -0 0</pose>
+        <collision name="belt_collision_3">
+          <geometry>
+            <box>
+              <size>3.2 0.65461 0.18862</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <coefficient>1000</coefficient>
+                <patch_radius>0.1</patch_radius>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <joint name="world_conveyor_3" type="revolute">
+        <parent>world</parent>
+        <child>conveyor_belt_2::link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <use_parent_model_frame>0</use_parent_model_frame>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <joint name="conveyor_belt_3::belt_joint" type="prismatic">
+        <parent>conveyor_belt_3::link</parent>
+        <child>conveyor_belt_3::belt</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1</upper>
+          </limit>
+          <use_parent_model_frame>0</use_parent_model_frame>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <plugin name="conveyor_belt_plugin_3" filename="libROSConveyorBeltPlugin.so">
+        <robot_namespace>/ariac_3</robot_namespace>
+        <population_rate_modifier_topic>/ariac_3/population/rate_modifier</population_rate_modifier_topic>
+        <link>conveyor_belt_3::belt</link>
+        <joint>conveyor_belt_3::belt_joint</joint>
+        <power>100</power>
+      </plugin>
+    </model>
+
+
+
+
+
 
     <model name="camera_0">
       <static>1</static>
@@ -606,7 +882,228 @@
           <use_parent_model_frame>1</use_parent_model_frame>
         </axis>
       </joint>
+    </model>
+
+    <model name="camera_2">
+      <static>1</static>
+      <link name='camera_mount_link_2'>
+        <pose>0.8 -4.2 2 0 1.57 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.01</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01</iyy>
+            <iyz>0</iyz>
+            <izz>0.01</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision_camera_mount_2">
+          <geometry>
+            <box>
+              <size> 0.02 0.05 0.05 </size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual_camera_mount_2">
+          <geometry>
+            <box>
+              <size> 0.02 0.05 0.05 </size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <sensor type="camera" name="camera">
+          <pose>0.01 0 0 0 0 0</pose>
+          <update_rate>30.0</update_rate>
+          <always_on>1</always_on>
+          <visualize>true</visualize>
+          <topic>/camera_2/image_raw</topic>
+          <camera name="camera">
+            <horizontal_fov>1.570796</horizontal_fov>
+            <image>
+              <width>320</width>
+              <height>240</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.007</stddev>
+            </noise>
+          </camera>
+          <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>30.0</updateRate>
+            <cameraName>camera_2</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera_mount_link_2</frameName>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+          </plugin>
+        </sensor>
+      </link>
+      <joint name='camera_mount_joint_2' type='revolute'>
+        <child>conveyor_belt_2::link</child>
+        <parent>camera_base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>1000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+    </model>
+
+    <model name="camera_3">
+      <static>1</static>
+      <link name='camera_mount_link_3'>
+        <pose>0.8 1.7 2 0 1.57 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.01</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01</iyy>
+            <iyz>0</iyz>
+            <izz>0.01</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision_camera_mount_3">
+          <geometry>
+            <box>
+              <size> 0.02 0.05 0.05 </size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual_camera_mount_3">
+          <geometry>
+            <box>
+              <size> 0.02 0.05 0.05 </size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <sensor type="camera" name="camera">
+          <pose>0.01 0 0 0 0 0</pose>
+          <update_rate>30.0</update_rate>
+          <always_on>1</always_on>
+          <visualize>true</visualize>
+          <topic>/camera_3/image_raw</topic>
+          <camera name="camera">
+            <horizontal_fov>1.570796</horizontal_fov>
+            <image>
+              <width>320</width>
+              <height>240</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.007</stddev>
+            </noise>
+          </camera>
+          <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>30.0</updateRate>
+            <cameraName>camera_3</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera_mount_link_3</frameName>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+          </plugin>
+        </sensor>
+      </link>
+      <joint name='camera_mount_joint_3' type='revolute'>
+        <child>conveyor_belt_3::link</child>
+        <parent>camera_base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>1000</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
     </model>-->
+
     <!-- ########### camera end ########### -->
     <!-- ########### camera end ########### -->
     <!-- ########### camera end ########### -->

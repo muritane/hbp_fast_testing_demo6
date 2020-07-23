@@ -13,6 +13,8 @@
   <!--<experimentControl>
     <stateMachine id="BallThrowingMachine_0" src="BallThrowingMachine_0.exd" xsi:type="SMACHStateMachine" />
     <stateMachine id="BallThrowingMachine_1" src="BallThrowingMachine_1.exd" xsi:type="SMACHStateMachine" />
+    <stateMachine id="BallThrowingMachine_2" src="BallThrowingMachine_2.exd" xsi:type="SMACHStateMachine" />
+    <stateMachine id="BallThrowingMachine_3" src="BallThrowingMachine_3.exd" xsi:type="SMACHStateMachine" />
   </experimentControl>-->
   <cameraPose>
     <cameraPosition x="4.5" y="0" z="1.8"/>
