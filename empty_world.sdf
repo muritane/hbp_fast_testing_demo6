@@ -1330,10 +1330,10 @@
     </model>
 
     <!--Kuka Arm-->
-    <!--<include>
+    <include>
         <uri>model://kuka_iiwa_14_prismatic_gripper</uri>
         <pose>1.0 -0.6 0.6 0 -0 0</pose>
-    </include>-->
+    </include>
 
     <!--Schunk Arm-->
     <!--<include>
@@ -1360,10 +1360,10 @@
     </include>-->
 
     <!--kuka, schunk, panda, ur5e-->
-    <include>
+    <!--<include>
         <uri>model://iiwa_panda_lwa4p_ur5e</uri>
         <pose>1.0 -0.6 0.6 0 -0 0</pose>
-    </include>
+    </include>-->
 
    <!-- <state world_name="default">
       <sim_time>215 662000000</sim_time>
