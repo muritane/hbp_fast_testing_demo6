@@ -2,12 +2,4 @@
 <ns1:bibi 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/BIBI">
-<!--   <ns1:bodyModel robotId="icub">icub_model/model.sdf</ns1:bodyModel> -->
-  <!--<ns1:brainModel>
-    <ns1:file>tutorial_baseball.py</ns1:file>
-  </ns1:brainModel>
-  <ns1:transferFunction src="img_to_pred_0.py" active="true" priority="0" xsi:type="ns1:PythonTransferFunction" />
-  <ns1:transferFunction src="img_to_pred_1.py" active="true" priority="0" xsi:type="ns1:PythonTransferFunction" />
-  <ns1:transferFunction src="img_to_pred_2.py" active="true" priority="0" xsi:type="ns1:PythonTransferFunction" />
-  <ns1:transferFunction src="img_to_pred_3.py" active="true" priority="0" xsi:type="ns1:PythonTransferFunction" />-->
 </ns1:bibi>
