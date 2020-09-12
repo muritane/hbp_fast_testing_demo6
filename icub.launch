@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find demonstrator6_description)/urdf/icub/with_macro.urdf.xacro'" />
+  <param name="robot_description_semantic" textfile="$(find sacc_rec_grasp_description)/srdf/robot.srdf"/>
+
+  <group ns="/icub">
+    <node name="joint_state_relay" pkg="topic_tools" type="relay" args="/icub/joints /joint_states"/>
+  </group>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+  </node>
+</launch>

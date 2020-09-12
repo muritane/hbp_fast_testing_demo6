@@ -26,4 +26,5 @@
 <!--   <rosLaunch src="panda.launch" /> -->
 <!--   <rosLaunch src="ur5e.launch" /> -->
 <!--   <rosLaunch src="multiple_robots.launch" /> -->
+<!--   <rosLaunch src="icub.launch" /> -->
 </ExD>
