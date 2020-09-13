@@ -9,4 +9,11 @@
 
 Starting iCub TR:
 1. Launch NRP experiment
+
+    -> exception 1: Gazebo world does not load icub model, bibi_configuration file does instead
+    
+    -> exception 2: launch file does not start controllers, InitiCub Gazebo plugin does instead (from icub_initialization package)
+    
+    -> do not know why: icub model in NRP experiment is neeeded, but it is used for iCub orientation relative to world frame anyway
+    
 2. roslaunch target_reaching_nengo main_TR_CL_nengo_icub.launch
